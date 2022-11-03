@@ -1,0 +1,9 @@
+{
+    "colorscheme": "simple",
+    "hlsearch": true,
+    "parsecursor": true,
+    "rmtrailingws": true,
+    "savecursor": true,
+    "scrollbar": true,
+    "tabmovement": true
+}
