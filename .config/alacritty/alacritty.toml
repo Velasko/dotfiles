@@ -1,1 +1,1 @@
-import = ["/home/velasco/.config/alacritty/themes/themes/xterm.toml"]
+import = ["~/.config/alacritty/themes/themes/xterm.toml"]
