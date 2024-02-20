@@ -1,9 +1,23 @@
 {
-    "colorscheme": "simple",
+    "*.py": {
+        "colorcolumn": 80,
+        "softwrap": false
+    },
+    "*.yml": {
+        "tabsize": 2,
+        "tabstospaces": true
+    },
+    "colorscheme": "atom-dark",
     "hlsearch": true,
+    "indentchar": ".",
+    "lsp.autocompleteDetails": true,
+    "lsp.ignoreTriggerCharacters": "completion,signature",
+    "lsp.server": "rust=rust-analyzer",
+    "mkparents": true,
     "parsecursor": true,
     "rmtrailingws": true,
     "savecursor": true,
     "scrollbar": true,
+    "softwrap": true,
     "tabmovement": true
 }
