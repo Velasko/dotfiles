@@ -103,12 +103,13 @@ plugins=(
         rust
         tmux
         web-search
+        direnv
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 export EDITOR='micro'
 # export MANPATH="/usr/local/man:$MANPATH"
 
