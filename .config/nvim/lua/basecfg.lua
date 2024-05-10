@@ -77,8 +77,8 @@ vim.keymap.set("i", "<C-e>", "<esc>:", {desc = 'cmdline'})
 -- CTRL-L is the goto line dialog
 vim.keymap.set("i", "<C-L>",
 	function()
-		local input = vim.fn.input("Go to line: ")
-		return "<cmd>:" .. input .. "<CR>"
+		vim.cmd("stopinsert")
+		vim.api.nvim_feedkeys(":", 'tn', true)
 	end,
 	{expr = true, noremap = true, desc = 'Go to line'}
 )
@@ -139,13 +139,10 @@ vim.keymap.set(allmodes, "<C-h>", get_selection)
 -- Use Ctrl-f to find
 vim.keymap.set(allmodes, "<C-f>",
 	function()
-		local esc = vim.api.nvim_replace_termcodes('<esc>', true, false, true)
 		local search_cmd = "/"
 		
 		vim.cmd("stopinsert")
 		if get_mode() == "v" then
-			-- go to normal mode
-			vim.api.nvim_feedkeys(esc, 'x', false)
 			search_cmd = search_cmd .. get_selection()
 		end
 
