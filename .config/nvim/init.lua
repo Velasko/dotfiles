@@ -52,8 +52,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end
 })
 
-require("basecfg")
-
 require("neo-tree").setup {
   enable_git_status = false,
   event_handlers = { {
@@ -187,3 +185,5 @@ require("noice").setup({
 })
 
 require("nvim-devdocs").setup()
+
+require("basecfg")
