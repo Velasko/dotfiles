@@ -26,5 +26,6 @@
     "CtrlShiftz": "Redo",
     "CtrlSpace": "command:lspcompletion",
     "CtrlUnderscore": "lua:comment.comment",
+    "F1": "command:cheat",
     "F4": "command:jumptag"
 }
