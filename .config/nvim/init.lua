@@ -15,21 +15,57 @@ vim.opt.termguicolors = true
 allmodes = {"", "i", "v", "c", "o"}
 
 require("lazy").setup({
-  {"akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons"},
-  {"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = { "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim", "3rd/image.nvim"}},
-  {"lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-  {"nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" }},
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-  {"lewis6991/gitsigns.nvim"},
-  {"nvim-telescope/telescope.nvim", tag = '0.1.6', dependencies = { "nvim-lua/plenary.nvim" }},
-  {"bluz71/vim-moonfly-colors"},
-  {"vague2k/huez.nvim", dependencies = { "nvim-telescope/telescope.nvim", "stevearc/dressing.nvim" }},
-  {"VonHeikemen/lsp-zero.nvim", dependencies = {"neovim/nvim-lspconfig", "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}},
-  {"hrsh7th/nvim-cmp", dependencies = { "L3MON4D3/LuaSnip", "hrsh7th/cmp-nvim-lsp"}},
-  {"rcarriga/nvim-notify"},
-  {"folke/noice.nvim", event = "VeryLazy", dependencies = {"MunifTanjim/nui.nvim"}},
-  {"luckasRanarison/nvim-devdocs", dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "nvim-treesitter/nvim-treesitter"}, opts = {}},
-  {"tpope/vim-obsession"},
+	-- visual file tab
+	{"akinsho/bufferline.nvim", version = "*", dependencies = "nvim-tree/nvim-web-devicons"},
+
+	-- file tree
+	{"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = {
+		"nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim", "MunifTanjim/nui.nvim", "3rd/image.nvim"}
+	},
+
+	-- auto indenting ?
+	{"lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+
+	-- status bar
+	{"nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" }},
+
+	-- syntax highlighting
+	{"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+
+	-- left side color notification on git changes
+	{"lewis6991/gitsigns.nvim"},
+
+	-- fuzzy tools
+	{"nvim-telescope/telescope.nvim", tag = '0.1.6', dependencies = { "nvim-lua/plenary.nvim" }},
+
+	-- theme manager
+	{"vague2k/huez.nvim", dependencies = { "nvim-telescope/telescope.nvim", "stevearc/dressing.nvim" }},
+
+	-- lsp
+	{"VonHeikemen/lsp-zero.nvim", dependencies = {
+		"neovim/nvim-lspconfig", "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim"}
+	},
+
+	-- autocomplete
+	{"hrsh7th/nvim-cmp", dependencies = { "L3MON4D3/LuaSnip", "hrsh7th/cmp-nvim-lsp"}},
+
+	-- notification system
+	{"rcarriga/nvim-notify"},
+
+	-- minor interface improvements
+	{"folke/noice.nvim", event = "VeryLazy", dependencies = {"MunifTanjim/nui.nvim"}},
+
+	-- offline docs
+	{"luckasRanarison/nvim-devdocs", dependencies = {
+		"nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "nvim-treesitter/nvim-treesitter"},
+		opts = {}
+	},
+
+	-- session manager
+	{"tpope/vim-obsession"},
+
+	-- colortheme
+	{"bluz71/vim-moonfly-colors"},
 })
 
 vim.notify = require("notify")
@@ -184,6 +220,7 @@ require("noice").setup({
   },
 })
 
+require("ibl").setup()
 require("nvim-devdocs").setup()
 
 require("basecfg")
