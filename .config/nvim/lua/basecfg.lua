@@ -36,9 +36,10 @@ vim.keymap.set(allmodes, "<c-q>", "<esc><c-o>:q<cr>", {desc = 'Quit'})
 
 -- vim.opt.clipboard = "xclip"
 vim.opt.clipboard = "unnamedplus"
-vim.keymap.set("v", "<C-X>", "<cmd>normal! x<cr>") -- cut
-vim.keymap.set("v", "<C-C>", "<cmd>normal! y<cr>") -- copy
-vim.keymap.set(allmodes, "<C-v>", "<cmd>normal! P<cr><Right>") -- paste
+vim.keymap.set("v", "<C-X>", "<cmd>normal! x<cr>",{desc = 'Cut'}) -- cut
+vim.keymap.set("v", "<C-C>", "<cmd>normal! y<cr>",{desc = 'Copy'}) -- copy
+vim.keymap.set(allmodes, "<C-v>", "<cmd>normal! P<cr><Right>", {noremap = true, desc = 'Paste'}) -- paste
+--vim.keymap.set(allmodes, "<A-v>", "<cmd>normal! <C-W>P<cr><Right>", {desc = 'Paste Replace'}) -- paste replace
 
 -- CTRL-T is new tab
 vim.keymap.set(allmodes, "<C-T>", "<cmd>enew<cr>", {desc = 'New tab'})
@@ -140,11 +141,9 @@ vim.keymap.set(allmodes, "<C-f>",
 	function()
 		local esc = vim.api.nvim_replace_termcodes('<esc>', true, false, true)
 		local search_cmd = "/"
-
-		if get_mode() == "i" then
-			-- go to normal mode
-			vim.api.nvim_feedkeys(esc, 'x', false)
-		elseif get_mode() == "v" then
+		
+		vim.cmd("stopinsert")
+		if get_mode() == "v" then
 			-- go to normal mode
 			vim.api.nvim_feedkeys(esc, 'x', false)
 			search_cmd = search_cmd .. get_selection()
@@ -168,16 +167,19 @@ vim.keymap.set(allmodes, "<C-r>",
 		local esc = vim.api.nvim_replace_termcodes('<esc>', true, false, true)
 		local search_cmd = ":%s/"
 
-		if get_mode() == "i" then
-			-- go to normal mode
-			vim.api.nvim_feedkeys(esc, 'x', false)
-		elseif get_mode() == "v" then
+		vim.cmd("stopinsert")
+		if get_mode() == "v" then
 			-- go to normal mode
 			vim.api.nvim_feedkeys(esc, 'x', false)
 			search_cmd = search_cmd .. get_selection()
 		end
 
+		local current_cmd_size = string.len(search_cmd)
+		search_cmd = search_cmd .. "/{replacement preview}/gIc"
+
 		vim.api.nvim_feedkeys(search_cmd, 'tn', true)
+--		vim.api.nvim_win_set_cursor(0, (1, current_cmd_size))
+
 		prompt_callback(get_new_string)
 
 	end,
