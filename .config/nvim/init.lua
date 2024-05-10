@@ -29,6 +29,7 @@ require("lazy").setup({
   {"rcarriga/nvim-notify"},
   {"folke/noice.nvim", event = "VeryLazy", dependencies = {"MunifTanjim/nui.nvim"}},
   {"luckasRanarison/nvim-devdocs", dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "nvim-treesitter/nvim-treesitter"}, opts = {}},
+  {"tpope/vim-obsession"},
 })
 
 vim.notify = require("notify")
