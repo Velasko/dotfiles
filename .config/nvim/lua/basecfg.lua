@@ -5,6 +5,7 @@ local allmodes = {"", "i", "v", "c", "o"}
 
 vim.opt.autoindent = true
 vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 
 -- confirmation on exit
 vim.opt.confirm = true
@@ -133,7 +134,6 @@ function get_selection()
 	return sanitize_string(get_visual_selection())
 end
 vim.keymap.set(allmodes, "<C-h>", get_selection)
--- vim.api.nvim_create_autocmd("get_selection", {callback = function() vim.notify("called back") end})
 
 -- Use Ctrl-f to find
 vim.keymap.set(allmodes, "<C-f>",
