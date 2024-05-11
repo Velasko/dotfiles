@@ -132,6 +132,10 @@ function get_mode()
 end
 
 function get_selection()
+	if get_mode() = "v" then
+		local esc = vim.api.nvim_replace_termcodes('<esc>', true, false, true)
+		vim.api.nvim_feedkeys(esc, 'x', false)
+	end
 	return sanitize_string(get_visual_selection())
 end
 vim.keymap.set(allmodes, "<C-h>", get_selection)
@@ -161,37 +165,22 @@ end
 
 vim.keymap.set(allmodes, "<C-r>",
 	function()
-		local esc = vim.api.nvim_replace_termcodes('<esc>', true, false, true)
 		local search_cmd = ":%s/"
 
 		vim.cmd("stopinsert")
 		if get_mode() == "v" then
-			-- go to normal mode
-			vim.api.nvim_feedkeys(esc, 'x', false)
-			search_cmd = search_cmd .. get_selection()
+			earch_cmd = search_cmd .. get_selection()
 		end
 
-		local current_cmd_size = string.len(search_cmd)
-		search_cmd = search_cmd .. "/{replacement preview}/gIc"
-
 		vim.api.nvim_feedkeys(search_cmd, 'tn', true)
---		vim.api.nvim_win_set_cursor(0, (1, current_cmd_size))
 
-		prompt_callback(get_new_string)
-
+--		prompt_callback(finish_replace)
 	end,
 	{desc = 'Replace', remap = true}
 )
 
-function get_new_string(event)
-	-- event.abort = true
+function finish_replace(event)
 	vim.api.nvim_feedkeys("/2", 'tn', true)
-	prompt_callback(finish_replace)
-end
-
-function finish_replace()
-	vim.event = abort
-	vim.api.nvim_feedkeys("/g", 'tn', true)
 end
 
 -- clear highlight
