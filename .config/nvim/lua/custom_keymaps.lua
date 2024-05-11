@@ -34,7 +34,7 @@ vim.keymap.set(allmodes, '<A-BS>', '<C-W>', { noremap = true, desc = 'Delete wor
 vim.keymap.set("v", "<BS>", "d", {noremap = true, desc = 'Delete selection'})
 
 -- ctrl + q = quit
-vim.keymap.set(allmodes, "<c-q>", "<esc><c-o>:q<cr>", {desc = 'Quit'})
+vim.keymap.set(allmodes, "<c-q>", "<esc><c-o>:q<cr>", {desc = 'Quit', noremap = true})
 
 -- vim.opt.clipboard = "xclip"
 vim.opt.clipboard = "unnamedplus"
@@ -73,8 +73,8 @@ vim.keymap.set("i", "<C-A>", "<C-O>gg<C-O>gH<C-O>G", {noremap = true, desc = 'Se
 vim.keymap.set({"c", "o", "s"}, "<C-A>", "<C-C>gggH<C-O>G", {noremap = true, desc = 'Select all'})
 vim.keymap.set("x", "<C-A>", "<C-C>ggVG", {noremap = true, desc = 'Select all'})
 
-vim.keymap.set(allmodes, "<C-e>", ":", {desc = 'cmdline'})
-vim.keymap.set("i", "<C-e>", "<esc>:", {desc = 'cmdline'})
+vim.keymap.set(allmodes, "<C-e>", ":", {desc = 'cmdline', noremap = true})
+vim.keymap.set("i", "<C-e>", "<esc>:", {desc = 'cmdline', noremap = true})
 
 -- CTRL-L is the goto line dialog
 vim.keymap.set("i", "<C-L>",
@@ -146,7 +146,7 @@ vim.keymap.set(allmodes, "<C-h>", get_selection)
 vim.keymap.set(allmodes, "<C-f>",
 	function()
 		local search_cmd = "/"
-		
+
 		vim.cmd("stopinsert")
 		if get_mode() == "v" then
 			search_cmd = search_cmd .. get_selection()
