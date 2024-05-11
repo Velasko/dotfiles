@@ -16,6 +16,8 @@ vim.opt.spelllang = "en_us,pt_br"
 -- select text when holding shift
 vim.opt.keymodel = "startsel,stopsel"
 vim.opt.mouse = "a"
+vim.keymap.set("v", "<C-S-Right>", "e")
+
 vim.opt.linebreak = true
 vim.opt.lisp = true
 
@@ -132,7 +134,7 @@ function get_mode()
 end
 
 function get_selection()
-	if get_mode() = "v" then
+	if get_mode() == "v" then
 		local esc = vim.api.nvim_replace_termcodes('<esc>', true, false, true)
 		vim.api.nvim_feedkeys(esc, 'x', false)
 	end
