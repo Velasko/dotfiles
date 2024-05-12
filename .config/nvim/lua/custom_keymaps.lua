@@ -34,7 +34,7 @@ vim.keymap.set(allmodes, '<A-BS>', '<C-W>', { noremap = true, desc = 'Delete wor
 vim.keymap.set("v", "<BS>", "d", {noremap = true, desc = 'Delete selection'})
 
 -- ctrl + q = quit
-vim.keymap.set(allmodes, "<c-q>", "<esc><c-o>:q<cr>", {desc = 'Quit', noremap = true})
+--vim.keymap.set(allmodes, "<c-q>", "<esc><c-o>:q<cr>", {desc = 'Quit', noremap = true})
 
 -- vim.opt.clipboard = "xclip"
 vim.opt.clipboard = "unnamedplus"
@@ -43,20 +43,17 @@ vim.keymap.set("v", "<C-C>", "<cmd>normal! y<cr>",{desc = 'Copy'}) -- copy
 vim.keymap.set(allmodes, "<C-v>", "<cmd>normal! P<cr><Right>", {noremap = true, desc = 'Paste'}) -- paste
 --vim.keymap.set(allmodes, "<A-v>", "<cmd>normal! <C-W>P<cr><Right>", {desc = 'Paste Replace'}) -- paste replace
 
--- CTRL-T is new tab
-vim.keymap.set(allmodes, "<C-T>", "<cmd>enew<cr>", {desc = 'New tab'})
--- CTRL-W is close tab
-vim.keymap.set(allmodes, "<C-W>", "<cmd>bdelete<cr>", {desc = 'Close tab'})
--- Alt-O is open tab
-vim.keymap.set(allmodes, "<A-o>", function()
-		local input = vim.fn.input("Open file: ")
+function open_file()
+	local input = vim.fn.input("Open file: ")
+	if input ~= "" then
 		vim.cmd.edit(input)
-	end, {desc = 'Open file'}
-)
+	end
+end
+
 -- ALT-. is right tab
-vim.keymap.set(allmodes, "<A-.>", "<cmd>bnext<cr>", {desc = 'Tab right'})
+--vim.keymap.set(allmodes, "<A-.>", "<cmd>bnext<cr>", {desc = 'Tab right'})
 -- ALT-, is right tab
-vim.keymap.set(allmodes, "<A-,>", "<cmd>bprevious<cr>", {desc = 'Tab left'})
+--vim.keymap.set(allmodes, "<A-,>", "<cmd>bprevious<cr>", {desc = 'Tab left'})
 
 -- tab is indent
 vim.keymap.set("v", "<Tab>", ">gv", {desc = 'Indent'})
@@ -64,8 +61,8 @@ vim.keymap.set("v", "<S-Tab>", "<gv", {desc = 'Unindent'})
 vim.keymap.set("i", "<S-Tab>", "<cmd><<cr>", {desc = 'Unindent'})
 
 -- Undo and Redo
-vim.keymap.set(allmodes, "<C-Z>", "<C-O>u", {desc = 'Undo'})
-vim.keymap.set(allmodes, "<C-Y>", "<C-O><C-R>", {desc = 'Redo'})
+-- vim.keymap.set(allmodes, "<C-Z>", "<C-O>u", {desc = 'Undo'})
+-- vim.keymap.set(allmodes, "<C-Y>", "<C-O><C-R>", {desc = 'Redo'})
 
 -- CTRL-A is Select all
 vim.keymap.set("", "<C-A>", "gggH<C-O>G", {noremap = true, desc = 'Select all'})
@@ -77,6 +74,11 @@ vim.keymap.set(allmodes, "<C-e>", ":", {desc = 'cmdline', noremap = true})
 vim.keymap.set("i", "<C-e>", "<esc>:", {desc = 'cmdline', noremap = true})
 
 -- CTRL-L is the goto line dialog
+function goto_line()
+	vim.cmd("stopinsert")
+	vim.api.nvim_feedkeys(":", 'tn', true)
+end
+
 vim.keymap.set("i", "<C-L>",
 	function()
 		vim.cmd("stopinsert")
@@ -86,6 +88,11 @@ vim.keymap.set("i", "<C-L>",
 )
 
 -- Use CTRL-S for saving, also in Insert mode
+function save_file()
+	local filename = vim.api.nvim_buf_get_name(0)
+	vim.cmd.write(filename ~= "" and filename or vim.fn.input("File name: "))
+end
+
 vim.keymap.set(allmodes, "<C-s>",
 	function()
 		local filename = vim.api.nvim_buf_get_name(0)
@@ -99,7 +106,7 @@ vim.keymap.set(allmodes, "<M-S>",
 	end, {desc = 'Save as'}
 )
 
-local function sanitize_string(s)
+function sanitize_string(s)
 	local dirty_string = string.gsub(s, "[&/\\]", "\\%1")
 	for _, char in ipairs({	{"\a", "\\a"},
 							{"\b", "\\b"},
@@ -115,7 +122,7 @@ local function sanitize_string(s)
 	return dirty_string
 end
 
-local function get_visual_selection()
+function get_visual_selection()
   local s_start = vim.fn.getpos("'<")
   local s_end = vim.fn.getpos("'>")
   local n_lines = math.abs(s_end[2] - s_start[2]) + 1
