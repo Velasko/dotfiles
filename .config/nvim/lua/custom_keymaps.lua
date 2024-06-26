@@ -94,10 +94,7 @@ function save_file()
 end
 
 vim.keymap.set(allmodes, "<C-s>",
-	function()
-		local filename = vim.api.nvim_buf_get_name(0)
-		vim.cmd.write(filename ~= "" and filename or vim.fn.input("File name: "))
-	end, {desc = 'Save'}
+	save_file, {desc = 'Save'}
 )
 
 vim.keymap.set(allmodes, "<M-S>",
