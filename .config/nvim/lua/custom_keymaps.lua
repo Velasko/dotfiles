@@ -64,6 +64,18 @@ vim.keymap.set("i", "<S-Tab>", "<cmd><<cr>", {desc = 'Unindent'})
 -- vim.keymap.set(allmodes, "<C-Z>", "<C-O>u", {desc = 'Undo'})
 -- vim.keymap.set(allmodes, "<C-Y>", "<C-O><C-R>", {desc = 'Redo'})
 
+-- Comment toggle function
+	
+function CommentToggle()
+	if get_mode() == "v" then
+		local esc = vim.api.nvim_replace_termcodes('<esc>', true, false, true)
+		vim.api.nvim_feedkeys(esc, 'x', false)
+		vim.cmd("'<, '>CommentToggle")
+	else
+		vim.cmd("CommentToggle")
+	end
+end
+
 -- CTRL-A is Select all
 vim.keymap.set("", "<C-A>", "gggH<C-O>G", {noremap = true, desc = 'Select all'})
 vim.keymap.set("i", "<C-A>", "<C-O>gg<C-O>gH<C-O>G", {noremap = true, desc = 'Select all'})

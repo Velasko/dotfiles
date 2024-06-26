@@ -28,6 +28,7 @@ return {
 			["<C-y>"] = {"<C-O><C-r>", "Redo"},
 			["<C-d>"] = {"<cmd>stopinsert<cr>yyp<cmd>startinsert<cr>", "Copy line"},
 			["<C-k>"] = {"<cmd>stopinsert<cr>dd<cmd>startinsert<cr>", "Delete line"},
+			["<C-_>"] = {CommentToggle, "Delete line"},
 			mode = vim.g.allmodes,
 		})
 
