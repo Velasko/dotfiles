@@ -36,7 +36,7 @@ return {
 		vim.keymap.set({"c", "o", "s"}, "<C-A>", "<C-C>gggH<C-O>G", {noremap = true, desc = 'Select all'})
 		vim.keymap.set("x", "<C-A>", "<C-C>ggVG", {noremap = true, desc = 'Select all'})
 
-		vim.keymap.set(allmodes, "<C-e>", ":", {desc = 'cmdline', noremap = true})
+		vim.keymap.set(vim.g.allmodes, "<C-e>", ":", {desc = 'cmdline', noremap = true})
 		vim.keymap.set("i", "<C-e>", "<esc>:", {desc = 'cmdline', noremap = true})
 
 		require("which-key").register({
