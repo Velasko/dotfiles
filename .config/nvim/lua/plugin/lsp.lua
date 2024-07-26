@@ -12,14 +12,7 @@ return {
 			lsp.default_keymaps({ buffer });
 		end);
 
-		require("mason").setup();
-		require("mason-lspconfig").setup({
-			handlers = {
-				function(server)
-					require('lspconfig')[server].setup({});
-				end,
-			}
-		});
+		require("lspconfig").rust_analyzer.setup({});
 
 		vim.diagnostic.config({
 			virtual_text = true,
