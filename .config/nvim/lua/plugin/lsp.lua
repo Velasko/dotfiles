@@ -16,13 +16,15 @@ return {
 		require("lspconfig").rust_analyzer.setup({});
 
 		-- python
-		require("lspconfig").ruff.setup({})
+		require("lspconfig").ruff.setup({
+			cmd = { "ruff", "server", "--preview" }
+		})
 		require("lspconfig").jedi_language_server.setup({
 			single_file_support = false
 		})
 
 		-- lua
-		require'lspconfig'.lua_ls.setup({})
+		require 'lspconfig'.lua_ls.setup({})
 
 		vim.diagnostic.config({
 			virtual_text = true,
