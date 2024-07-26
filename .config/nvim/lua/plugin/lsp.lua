@@ -13,6 +13,18 @@ return {
 		end);
 
 		require("lspconfig").rust_analyzer.setup({});
+		require("lspconfig").pylsp.setup({
+			settings = {
+				pylsp = {
+					plugins = {
+						pycodestyle = {
+							ignore = {'W391'},
+							maxLineLength = 100
+						}
+					}
+				}
+			}
+		});
 
 		vim.diagnostic.config({
 			virtual_text = true,
