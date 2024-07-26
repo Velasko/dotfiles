@@ -16,10 +16,10 @@ return {
 		require("lspconfig").pylsp.setup({
 			settings = {
 				pylsp = {
+					configurationSources = ["yapf"],
 					plugins = {
-						pycodestyle = {
-							ignore = {'W391'},
-							maxLineLength = 100
+						yapf = {
+							enabled = true;
 						}
 					}
 				}
