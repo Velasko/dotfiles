@@ -12,19 +12,17 @@ return {
 			lsp.default_keymaps({ buffer });
 		end);
 
+		-- rust
 		require("lspconfig").rust_analyzer.setup({});
-		require("lspconfig").pylsp.setup({
-			settings = {
-				pylsp = {
-					configurationSources = ["yapf"],
-					plugins = {
-						yapf = {
-							enabled = true;
-						}
-					}
-				}
-			}
-		});
+
+		-- python
+		require("lspconfig").ruff.setup({})
+		require("lspconfig").jedi_language_server.setup({
+			single_file_support = false
+		})
+
+		-- lua
+		require'lspconfig'.lua_ls.setup({})
 
 		vim.diagnostic.config({
 			virtual_text = true,
@@ -41,7 +39,11 @@ return {
 
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			callback = function()
-				vim.lsp.buf.format()
+				local bufnr = vim.lsp.buf.format()
+				local clients = vim.lsp.buf_get_clients(bufnr)
+				if next(clients) ~= nil then
+					vim.lsp.buf.format();
+				end
 			end
 		})
 	end
