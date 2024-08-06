@@ -19,7 +19,8 @@ return {
 			"rust-analyzer",
 			"yaml-language-server",
 			"tsserver",
-			"vscode-html-language-server"
+			"vscode-html-language-server",
+			"svelte-language-server"
 		})
 
 		-- rust
@@ -72,6 +73,9 @@ return {
 
 		-- html
 		require("lspconfig").html.setup({})
+
+		-- svelte
+		require("lspconfig").svelte.setup({})
 
 		vim.diagnostic.config({
 			virtual_text = true,
