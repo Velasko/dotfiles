@@ -204,8 +204,8 @@ end
 
 -- clear highlight
 vim.keymap.set("i", "<Esc>", "<Esc>", { desc = 'Clear', noremap = true })
-vim.keymap.set({ "", "v" }, "<Esc>", "<Esc><cmd>:noh<cr>a", { desc = 'Clear', noremap = true })
+vim.keymap.set({ "", "v" }, "<Esc>", "<Esc><cmd>:noh<cr><cmd>startinsert<cr>", { desc = 'Clear', noremap = true })
 -- ref: https://neovim.io/doc/user/autocmd.html#autocmd-events
 -- ref: https://neovim.io/doc/user/api.html#nvim_create_autocmd
-vim.api.nvim_create_autocmd("CmdlineEnter", { callback = function() vim.cmd("startinsert!") end })
+vim.api.nvim_create_autocmd("CmdlineEnter", { callback = function() vim.cmd("startinsert") end })
 vim.cmd("startinsert")
