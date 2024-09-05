@@ -56,7 +56,7 @@ end
 --vim.keymap.set(allmodes, "<A-,>", "<cmd>bprevious<cr>", {desc = 'Tab left'})
 
 -- tab is indent
--- vim.keymap.aset("v", "<Tab>", ">gv", { desc = 'Indent' })
+-- vim.keymap.set("v", "<Tab>", ">gv", { desc = 'Indent' })
 -- vim.keymap.set("v", "<S-Tab>", "<gv", { desc = 'Unindent' })
 -- vim.keymap.set("i", "<S-Tab>", "<cmd><<cr>", { desc = 'Unindent' })
 
