@@ -25,11 +25,11 @@ return {
 
 		require("which-key").register({
 			name = "Editing keymaps",
-			["<C-z>"] = { "<C-O>u", "Undo" },
-			["<C-y>"] = { "<C-O><C-r>", "Redo" },
+			["<C-z>"] = { "<cmd>undo<cr>", "Undo" },
+			["<C-y>"] = { "<cmd>redo<cr>", "Redo" },
 			["<C-d>"] = { "<cmd>stopinsert<cr>yyp<cmd>startinsert<cr>", "Copy line" },
 			["<C-k>"] = { "<cmd>stopinsert<cr>dd<cmd>startinsert<cr>", "Delete line" },
-			["<C-_>"] = { CommentToggle, "Delete line" },
+			["<C-_>"] = { CommentToggle, "Comment line" },
 			mode = vim.g.allmodes,
 		})
 
