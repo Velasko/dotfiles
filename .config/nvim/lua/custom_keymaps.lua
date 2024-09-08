@@ -38,9 +38,9 @@ vim.keymap.set("v", "<BS>", "d", { noremap = true, desc = 'Delete selection' })
 
 -- vim.opt.clipboard = "xclip"
 vim.opt.clipboard = "unnamedplus"
-vim.keymap.set("v", "<C-X>", "<cmd>normal! x<cr>", { desc = 'Cut' })                                            -- cut
-vim.keymap.set("v", "<C-C>", "<cmd>normal! y<cr>", { desc = 'Copy' })                                           -- copy
-vim.keymap.set(allmodes, "<C-v>", "<cmd>normal! P<cr><cmd>startinsert<cr>", { noremap = true, desc = 'Paste' }) -- paste
+vim.keymap.set("v", "<C-X>", "<cmd>normal! x<cr>", { desc = 'Cut' })                                                   -- cut
+vim.keymap.set("v", "<C-C>", "<cmd>normal! y<cr>", { desc = 'Copy' })                                                  -- copy
+vim.keymap.set(allmodes, "<C-v>", "<cmd>normal! P<cr><cmd>startinsert<cr><Right>", { noremap = true, desc = 'Paste' }) -- paste
 --vim.keymap.set(allmodes, "<A-v>", "<cmd>normal! <C-W>P<cr><Right>", {desc = 'Paste Replace'}) -- paste replace
 
 function open_file()
