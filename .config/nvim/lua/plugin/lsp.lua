@@ -74,14 +74,8 @@ return {
 		-- html
 		require("lspconfig").html.setup({})
 
-		-- svelte
-		require("lspconfig").svelte.setup({})
-
-		vim.diagnostic.config({
-			virtual_text = true,
-			underline = true,
-			signs = false,
-		})
+		-- nix
+		require('lspconfig').nil_ls.setup({})
 
 		local signs = { Error = "!", Warn = "", Hint = "", Info = "" }
 
