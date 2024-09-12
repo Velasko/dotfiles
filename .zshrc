@@ -9,6 +9,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 base16_pop
 eval "$(starship init zsh)"
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -73,7 +74,7 @@ ENABLE_CORRECTION="true"
 
 #tmux config
 ZSH_TMUX_AUTOSTART="true"
-ZSH_TMUX_AUTOSTART_ONCE="false"
+ZSH_TMUX_AUTOSTART_ONCE="true"
 ZSH_TMUX_AUTOCONNECT="true"
 ZSH_TMUX_UNICODE="true"
 ZSH_TMUX_DEFAULT_SESSION_NAME="Default"
