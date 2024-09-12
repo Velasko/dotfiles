@@ -1,0 +1,81 @@
+format = "[╭─](#505050)$os$username[](fg:#505050 bg:#303030)$directory$git_branch$git_status$c$golang$rust$python$helm$docker_context$kubernetes$jobs[▓▒░ ](fg:#303030)$fill$time[ ](fg:#505050 bg:#000000)\n[╰─ ](fg:#505050)"
+[c]
+format = "[](bold fg:#505050 bg:#303030)[ $symbol ($version) ]($style)"
+style = "bold bg:#303030 fg:#f29333"
+symbol = ""
+
+[character]
+error_symbol = " [󱞩](bold red)"
+success_symbol = " [󱞩](bold green)"
+
+[directory]
+format = "[ $path ]($style)"
+style = "bold bg:#303030 fg:#00aabb"
+truncation_length = 3
+
+[directory.substitutions]
+Documents = "󰈙 "
+Downloads = " "
+Music = " "
+Pictures = " "
+
+[docker_context]
+format = "[](bold fg:#505050 bg:#303030)[ $symbol $context ]($style)"
+symbol = " "
+
+[git_branch]
+format = "[](bold fg:#505050 bg:#303030)[ $symbol $branch]($style)"
+style = "bold fg:#37b349 bg:#303030"
+symbol = ""
+
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+format = "[ $all_status$ahead_behind ]($style)"
+style = "bold fg:#eb008a bg:#303030"
+up_to_date = "✓ "
+
+[golang]
+format = "[](bold fg:#505050 bg:#303030)[ $symbol ($version) ]($style)"
+style = "bold bg:#303030 fg:#f29333"
+symbol = "󰟓 "
+
+[helm]
+format = "[](bold fg:#505050 bg:#303030)[ $symbol ($version) ]($style)"
+style = "bold bg:#303030 fg:#f29333"
+
+[jobs]
+format = "[](bold fg:#505050 bg:#303030)[ $symbol $number ]($style)"
+style = "fg:#f8ca12 bg:#303030"
+symbol = "✦"
+
+[os]
+disabled = false
+style = "fg:#37b349 bg:#505050"
+
+[os.symbols]
+NixOS = "  "
+Arch = " "
+Debian = " "
+
+[python]
+format = "[](bold fg:#505050 bg:#303030)[ $symbol ($version) ]($style)"
+style = "bold bg:#303030 fg:#f29333"
+symbol = "󰌠"
+
+[rust]
+format = "[](bold fg:#505050 bg:#303030)[ $symbol ($version) ]($style)"
+style = "bold bg:#303030 fg:#f29333"
+symbol = "󱘗"
+
+[time]
+disabled = false
+format = "[](bold fg:#000000 bg:#505050)[  $time ](bold fg:#37b349 bg:#505050)"
+time_format = "%R"
+
+[username]
+disabled = false
+format = "[$user ]($style)"
+show_always = true
+style_user = "bold fg:#37b349 bg:#505050"

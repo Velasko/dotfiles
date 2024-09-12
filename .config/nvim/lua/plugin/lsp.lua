@@ -12,20 +12,53 @@ return {
 			lsp.default_keymaps({ buffer });
 		end);
 
-		require("mason").setup();
+		-- Mason ref config: https://github.com/williamboman/mason-lspconfig.nvim
+		require("mason").setup({ PATH = "append" });
 		require("mason-lspconfig").setup({
-			handlers = {
-				function(server)
-					require('lspconfig')[server].setup({});
-				end,
-			}
-		});
+			ensure_installed = {
+				-- lua
+				"lua_ls",
 
-		vim.diagnostic.config({
-			virtual_text = true,
-			underline = true,
-			signs = false,
-		})
+				-- nix
+				"rnix",
+
+				-- python
+				"ruff",
+				"jedi_language_server",
+
+				-- rust
+				"rust_analyzer",
+
+				-- yaml
+				"yamlls"
+			},
+			handlers = {
+				function(server_name)
+					require("lspconfig")[server_name].setup({});
+				end,
+				["jedi_language_server"] = function()
+					require("lspconfig").jedi_language_server.setup({
+						single_file_support = false
+					})
+				end,
+				["yamlls"] = function()
+					require("lspconfig").yamlls.setup({
+						on_attach = function(client, bufnr)
+							client.server_capabilities.documentFormattingProvider = true
+						end,
+						settings = {
+							yaml = {
+								schemas = {
+									["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] =
+									"/*.k8s.yaml",
+									["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+								},
+							},
+						},
+					})
+				end
+			},
+		});
 
 		local signs = { Error = "!", Warn = "", Hint = "", Info = "" }
 
@@ -36,7 +69,11 @@ return {
 
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			callback = function()
-				vim.lsp.buf.format()
+				local bufnr = vim.lsp.buf.format()
+				local clients = vim.lsp.buf_get_clients(bufnr)
+				if next(clients) ~= nil then
+					vim.lsp.buf.format();
+				end
 			end
 		})
 	end
