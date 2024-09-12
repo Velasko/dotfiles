@@ -1,2 +1,12 @@
 [env]
 term = "xterm-256color"
+
+[font]
+size = 12
+[font.bold]
+family = "Inconsolata Nerd Font"
+style = "Bold"
+
+[font.normal]
+family = "Inconsolata Nerd Font"
+style = "Regular"
