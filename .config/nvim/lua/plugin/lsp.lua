@@ -12,70 +12,56 @@ return {
 			lsp.default_keymaps({ buffer });
 		end);
 
-		lsp.ensure_installed({
-			"lua-language-server",
-			"jedi",
-			"ruff",
-			"rust-analyzer",
-			"yaml-language-server",
-			"tsserver",
-			"vscode-html-language-server",
-			"svelte-language-server"
-		})
+		-- Mason ref config: https://github.com/williamboman/mason-lspconfig.nvim
+		require("mason").setup({ PATH = "append" });
+		require("mason-lspconfig").setup({
+			ensure_installed = {
+				-- html
+				"html",
 
-		-- rust
-		require("lspconfig").rust_analyzer.setup({});
+				-- lua
+				"lua_ls",
 
-		-- python
-		require("lspconfig").ruff.setup({
-			cmd = { "ruff", "server", "--preview" }
-		})
-		require("lspconfig").jedi_language_server.setup({
-			single_file_support = false
-		})
+				-- nix
+				"nil_ls",
 
-		-- lua
-		require('lspconfig').lua_ls.setup({})
+				-- python
+				"ruff",
+				"jedi_language_server",
 
-		-- yaml
-		require("lspconfig").yamlls.setup({
-			on_attach = function(client, bufnr)
-				client.server_capabilities.documentFormattingProvider = true
-			end,
-			settings = {
-				yaml = {
-					schemas = {
-						["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] =
-						"/*.k8s.yaml",
-						["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-					},
-				},
+				-- rust
+				"rust_analyzer",
+
+				-- yaml
+				"yamlls"
 			},
-		})
-
-		-- typescript
-		require("lspconfig").tsserver.setup({
-			init_options = {
-				plugins = {
-					{
-						name = "@vue/typescript-plugin",
-						location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-						languages = { "javascript", "typescript", "vue" },
-					},
-				},
+			handlers = {
+				function(server_name)
+					require("lspconfig")[server_name].setup({});
+				end,
+				["jedi_language_server"] = function()
+					require("lspconfig").jedi_language_server.setup({
+						single_file_support = false
+					})
+				end,
+				["yamlls"] = function()
+					require("lspconfig").yamlls.setup({
+						on_attach = function(client, bufnr)
+							client.server_capabilities.documentFormattingProvider = true
+						end,
+						settings = {
+							yaml = {
+								schemas = {
+									["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] =
+									"/*.k8s.yaml",
+									["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+								},
+							},
+						},
+					})
+				end
 			},
-			filetypes = {
-				"javascript",
-				"typescript",
-				"vue",
-			},
-		})
-
-		-- html
-		require("lspconfig").html.setup({})
-
-		-- nix
-		require('lspconfig').nil_ls.setup({})
+		});
 
 		local signs = { Error = "!", Warn = "", Hint = "", Info = "" }
 
