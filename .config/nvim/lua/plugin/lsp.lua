@@ -20,7 +20,7 @@ return {
 				"lua_ls",
 
 				-- nix
-				"nil_ls",
+				"rnix",
 
 				-- python
 				"ruff",
