@@ -56,6 +56,8 @@ style = "fg:#37b349 bg:#505050"
 
 [os.symbols]
 NixOS = "  "
+Arch = " "
+Debian = " "
 
 [python]
 format = "[](bold fg:#505050 bg:#303030)[ $symbol ($version) ]($style)"
