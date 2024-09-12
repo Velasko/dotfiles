@@ -8,7 +8,7 @@ return {
 		"RRethy/base16-nvim",
 	},
 	config = function()
-		-- vim.cmd.colorscheme('moonfly')
+		require("huez").setup({})
 		require('base16-colorscheme').with_config({
 			indentblankline = true,
 			illuminate = true,
@@ -18,6 +18,8 @@ return {
 			dapui = true,
 			cmp = true,
 		})
+
+		vim.cmd.colorscheme('base16-' .. os.getenv('BASE16_THEME'))
 		vim.keymap.set("n", "<leader>h", "<cmd>Huez<CR>", { desc = 'Huez menu' })
 	end
 }
