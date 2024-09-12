@@ -5,11 +5,19 @@ return {
 		"stevearc/dressing.nvim",
 		-- themes
 		"bluz71/vim-moonfly-colors",
+		"RRethy/base16-nvim",
 	},
 	config = function()
---		local colorscheme = require("huez.api").get_colorscheme()
---		vim.cmd("colorscheme " .. colorscheme);
-		vim.cmd.colorscheme('moonfly')
-		vim.keymap.set("n", "<leader>h", "<cmd>Huez<CR>", {desc = 'Huez menu'})
+		-- vim.cmd.colorscheme('moonfly')
+		require('base16-colorscheme').with_config({
+			indentblankline = true,
+			illuminate = true,
+			ts_rainbow = true,
+			telescope = true,
+			notify = true,
+			dapui = true,
+			cmp = true,
+		})
+		vim.keymap.set("n", "<leader>h", "<cmd>Huez<CR>", { desc = 'Huez menu' })
 	end
 }
