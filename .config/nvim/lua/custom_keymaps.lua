@@ -209,3 +209,10 @@ vim.keymap.set({ "", "v" }, "<Esc>", "<Esc><cmd>:noh<cr><cmd>startinsert<cr>", {
 -- ref: https://neovim.io/doc/user/api.html#nvim_create_autocmd
 vim.api.nvim_create_autocmd("CmdlineEnter", { callback = function() vim.cmd("startinsert") end })
 vim.cmd("startinsert")
+
+
+-- Getting OS
+local fd_os_release = assert(io.open("/etc/os-release"), "r")
+local s_os_release = fd_os_release:read("*a")
+fd_os_release:close()
+vim.g.system_distribution = s_os_release:lower()

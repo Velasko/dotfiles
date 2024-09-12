@@ -12,10 +12,7 @@ return {
 			lsp.default_keymaps({ buffer });
 		end);
 
-		-- Mason ref config: https://github.com/williamboman/mason-lspconfig.nvim
-		require("mason").setup({ PATH = "append" });
-		require("mason-lspconfig").setup({
-			ensure_installed = {
+		ensure_installed = {
 				-- lua
 				"lua_ls",
 
@@ -30,8 +27,18 @@ return {
 				"rust_analyzer",
 
 				-- yaml
-				"yamlls"
-			},
+				"yamlls",
+			}
+
+
+		if vim.g.system_distribution:match("nixos") ~= nil then
+			ensure_installed.append("nil_ls")
+		end
+
+		-- Mason ref config: https://github.com/williamboman/mason-lspconfig.nvim
+		require("mason").setup({ PATH = "append" });
+		require("mason-lspconfig").setup({
+			ensure_installed = ensure_installed,
 			handlers = {
 				function(server_name)
 					require("lspconfig")[server_name].setup({});
