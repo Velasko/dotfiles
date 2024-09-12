@@ -9,5 +9,7 @@ return {
 			highlight = { enable = true },
 			indent = { enable = true },
 		})
+
+		-- vim.cmd.TSInstall("regex")
 	end
 }
