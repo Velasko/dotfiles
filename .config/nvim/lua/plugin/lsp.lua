@@ -16,9 +16,6 @@ return {
 		require("mason").setup({ PATH = "append" });
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				-- html
-				"html",
-
 				-- lua
 				"lua_ls",
 
