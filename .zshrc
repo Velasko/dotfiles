@@ -5,8 +5,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-
+# ZSH_THEME="robbyrussell"
+        
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -75,14 +75,15 @@ ZSH_TMUX_DEFAULT_SESSION_NAME="Default"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-        git
-        zsh-autosuggestions
-        command-not-found
         autojump
+        command-not-found
+        direnv
+        git
         rust
         tmux
+		themes
         web-search
-        direnv
+        zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -113,6 +114,15 @@ export EDITOR='nvim'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        source "$BASE16_SHELL/profile_helper.sh"
+
+base16_pop
+
 
 eval "$(zoxide init --cmd=cd zsh)"
 eval "$(starship init zsh)"
