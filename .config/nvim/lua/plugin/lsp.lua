@@ -13,26 +13,26 @@ return {
 		end);
 
 		ensure_installed = {
-				-- lua
-				"lua_ls",
+			-- lua
+			"lua_ls",
 
-				-- nix
-				"rnix",
+			-- nix
+			"rnix",
 
-				-- python
-				"ruff",
-				"jedi_language_server",
+			-- python
+			"ruff",
+			"jedi_language_server",
 
-				-- rust
-				"rust_analyzer",
+			-- rust
+			"rust_analyzer",
 
-				-- yaml
-				"yamlls",
-			}
+			-- yaml
+			"yamlls",
+		}
 
 
 		if vim.g.system_distribution:match("nixos") ~= nil then
-			ensure_installed.append("nil_ls")
+			table.append(ensure_installed, "nil_ls")
 		end
 
 		-- Mason ref config: https://github.com/williamboman/mason-lspconfig.nvim
