@@ -27,7 +27,7 @@ return {
 			"rust_analyzer",
 
 			-- Toml
-			"taplo"
+			"taplo",
 
 			-- yaml
 			"yamlls",
