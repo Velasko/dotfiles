@@ -12,7 +12,7 @@ return {
 			lsp.default_keymaps({ buffer });
 		end);
 
-		ensure_installed = {
+		local ensure_installed = {
 			-- lua
 			"lua_ls",
 
@@ -26,13 +26,16 @@ return {
 			-- rust
 			"rust_analyzer",
 
+			-- Toml
+			"taplo"
+
 			-- yaml
 			"yamlls",
 		}
 
 
 		if vim.g.system_distribution:match("nixos") ~= nil then
-			ensure_installed:append("taplo")
+			table.insert(ensure_installed, "nil_ls")
 		end
 
 		-- Mason ref config: https://github.com/williamboman/mason-lspconfig.nvim
