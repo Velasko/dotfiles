@@ -32,7 +32,7 @@ return {
 
 
 		if vim.g.system_distribution:match("nixos") ~= nil then
-			table.insert(ensure_installed, "nil_ls")
+			ensure_installed:append("nil_ls")
 		end
 
 		-- Mason ref config: https://github.com/williamboman/mason-lspconfig.nvim
