@@ -32,7 +32,7 @@ return {
 
 
 		if vim.g.system_distribution:match("nixos") ~= nil then
-			ensure_installed:append("nil_ls")
+			ensure_installed:append("taplo")
 		end
 
 		-- Mason ref config: https://github.com/williamboman/mason-lspconfig.nvim
