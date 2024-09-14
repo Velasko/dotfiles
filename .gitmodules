@@ -52,3 +52,6 @@
 [submodule ".tmux/plugins/treemux"]
 	path = .tmux/plugins/treemux
 	url = https://github.com/kiyoon/treemux
+[submodule ".config/base16-schemes"]
+	path = .config/base16-schemes
+	url = https://github.com/tinted-theming/schemes
