@@ -16,9 +16,6 @@ return {
 			-- lua
 			"lua_ls",
 
-			-- nix
-			"rnix",
-
 			-- python
 			"ruff",
 			"jedi_language_server",
