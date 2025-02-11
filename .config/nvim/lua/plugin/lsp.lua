@@ -30,11 +30,6 @@ return {
 			"yamlls",
 		}
 
-
-		if vim.g.system_distribution:match("nixos") ~= nil then
-			table.insert(ensure_installed, "nil_ls")
-		end
-
 		-- Mason ref config: https://github.com/williamboman/mason-lspconfig.nvim
 		require("mason").setup({ PATH = "append" });
 		require("mason-lspconfig").setup({
