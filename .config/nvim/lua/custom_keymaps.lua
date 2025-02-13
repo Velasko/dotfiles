@@ -22,6 +22,7 @@ vim.opt.linebreak = true
 vim.opt.lisp = true
 
 -- cusor positional data
+vim.opt.scrolloff = 12 -- Keep 12 lines above/below cursor
 vim.opt.number = true
 vim.opt.ruler = true
 
