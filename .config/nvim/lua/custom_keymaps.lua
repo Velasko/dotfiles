@@ -11,7 +11,6 @@ vim.opt.tabstop = 4
 vim.opt.confirm = true
 
 vim.opt.spell = true
-vim.opt.spelllang = "en_us,pt_br"
 
 -- select text when holding shift
 vim.opt.keymodel = "startsel,stopsel"
