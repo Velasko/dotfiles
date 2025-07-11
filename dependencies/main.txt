@@ -1,0 +1,15 @@
+alacritty
+btop
+cargo
+direnv
+fzf
+git
+lazygit
+neovim
+stow
+tar
+tmux
+tree
+unzip
+zoxide
+zsh
