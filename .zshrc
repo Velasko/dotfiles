@@ -8,7 +8,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         source "$BASE16_SHELL/profile_helper.sh"
 
 base16_pop
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -91,8 +90,8 @@ plugins=(
 		themes
 		tmux
         web-search
-        zsh-autosuggestions
 )
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source $ZSH/oh-my-zsh.sh
 
