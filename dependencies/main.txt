@@ -4,7 +4,8 @@ cargo
 direnv
 fzf
 git
-lazygit
+golang
+luarocks
 neovim
 stow
 tar
@@ -13,3 +14,4 @@ tree
 unzip
 zoxide
 zsh
+levien-inconsolata-fonts
