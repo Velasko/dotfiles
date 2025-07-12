@@ -8,7 +8,6 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         source "$BASE16_SHELL/profile_helper.sh"
 
 base16_pop
-eval "$(starship init zsh)"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Set name of the theme to load --- if set to "random", it will
@@ -100,6 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 export EDITOR='nvim'
+eval "$(starship init zsh)"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
