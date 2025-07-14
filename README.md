@@ -4,18 +4,10 @@ This directory contains the dotfiles for my system
 
 ## Requirements
 
-Ensure you have the following installed on your system
-
-### Git
+Ensure git and stow are installed
 
 ```
-pacman -S git
-```
-
-### Stow
-
-```
-pacman -S stow
+pacman -S git stow
 ```
 
 ## Installation
@@ -30,7 +22,5 @@ $ cd dotfiles
 then use GNU stow to create symlinks
 
 ```
-$ stow .
+$ stow --target ~/ ./home
 ```
-
-More on: https://www.youtube.com/watch?v=y6XCebnB9gs
