@@ -19,8 +19,8 @@ $ git clone --recurse-submodules git@github.com/Velasko/dotfiles.git
 $ cd dotfiles
 ```
 
-then use GNU stow to create symlinks
+then, go to ./home and use GNU stow to create symlinks
 
 ```
-$ stow --target ~/ ./home
+$ stow --target ~/ .
 ```
