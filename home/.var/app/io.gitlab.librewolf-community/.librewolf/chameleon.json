@@ -1,0 +1,194 @@
+{
+  "config": {
+    "enabled": true,
+    "notificationsEnabled": false,
+    "theme": "dark",
+    "reloadIPStartupDelay": 0,
+    "hasPrivacyPermission": false
+  },
+  "excluded": [
+    "win2-edg",
+    "win2-esr2",
+    "win2-gcr",
+    "win2-ie",
+    "win3-edg",
+    "win3-esr2",
+    "win3-gcr",
+    "win3-ie",
+    "win1-edg",
+    "win1-esr2",
+    "win1-gcr",
+    "win1-ie",
+    "win4-ie"
+  ],
+  "headers": {
+    "blockEtag": false,
+    "enableDNT": false,
+    "referer": {
+      "disabled": false,
+      "xorigin": 0,
+      "trimming": 0
+    },
+    "spoofAcceptLang": {
+      "enabled": false,
+      "value": "default"
+    },
+    "spoofIP": {
+      "enabled": false,
+      "option": 0,
+      "rangeFrom": "",
+      "rangeTo": ""
+    }
+  },
+  "ipRules": [],
+  "options": {
+    "cookieNotPersistent": false,
+    "cookiePolicy": "allow_all",
+    "blockMediaDevices": false,
+    "blockCSSExfil": false,
+    "disableWebRTC": false,
+    "firstPartyIsolate": false,
+    "limitHistory": false,
+    "protectKBFingerprint": {
+      "enabled": false,
+      "delay": 1
+    },
+    "protectWinName": false,
+    "resistFingerprinting": false,
+    "screenSize": "default",
+    "spoofAudioContext": false,
+    "spoofClientRects": false,
+    "spoofFontFingerprint": false,
+    "spoofMediaDevices": false,
+    "timeZone": "default",
+    "trackingProtectionMode": "always",
+    "webRTCPolicy": "default",
+    "webSockets": "allow_all"
+  },
+  "profile": {
+    "selected": "windows",
+    "interval": {
+      "option": 10,
+      "min": 1,
+      "max": 1
+    },
+    "showProfileOnIcon": true
+  },
+  "version": "0.22.74.1",
+  "whitelist": {
+    "enabledContextMenu": true,
+    "defaultProfile": "none",
+    "rules": [
+      {
+        "id": "d8de8edb-031d-4a89-921b-a05581b7152b",
+        "name": "www.twitch.tv",
+        "sites": [
+          {
+            "domain": "www.twitch.tv"
+          }
+        ],
+        "lang": "en-US",
+        "profile": "default",
+        "spoofIP": "",
+        "options": {
+          "audioContext": false,
+          "clientRects": false,
+          "cssExfil": false,
+          "mediaDevices": false,
+          "name": false,
+          "ref": false,
+          "tz": false,
+          "ws": false
+        }
+      },
+      {
+        "id": "005e51dc-0925-482d-a535-2d5b7108fccb",
+        "name": "www.youtube.com",
+        "sites": [
+          {
+            "domain": "www.youtube.com"
+          }
+        ],
+        "lang": "en-US",
+        "profile": "default",
+        "spoofIP": "",
+        "options": {
+          "audioContext": false,
+          "clientRects": false,
+          "cssExfil": false,
+          "mediaDevices": false,
+          "name": false,
+          "ref": false,
+          "tz": false,
+          "ws": false
+        }
+      },
+      {
+        "id": "2ec34e60-fb53-4380-9903-e319e19424af",
+        "name": "mail.google.com",
+        "sites": [
+          {
+            "domain": "mail.google.com"
+          }
+        ],
+        "lang": "en-US",
+        "profile": "default",
+        "spoofIP": "",
+        "options": {
+          "audioContext": false,
+          "clientRects": false,
+          "cssExfil": false,
+          "mediaDevices": false,
+          "name": false,
+          "ref": false,
+          "tz": false,
+          "ws": false
+        }
+      },
+      {
+        "id": "90465aae-e914-44b4-ac9f-2eae9cadd53b",
+        "name": "web.whatsapp.com",
+        "sites": [
+          {
+            "domain": "web.whatsapp.com"
+          }
+        ],
+        "lang": "en-US",
+        "profile": "default",
+        "spoofIP": "",
+        "options": {
+          "audioContext": false,
+          "clientRects": false,
+          "cssExfil": false,
+          "mediaDevices": false,
+          "name": false,
+          "ref": false,
+          "tz": false,
+          "ws": false
+        }
+      },
+      {
+        "id": "26db5b13-e515-4c09-b374-0d61c88110b6",
+        "name": "account.proton.me",
+        "sites": [
+          {
+            "domain": "account.proton.me"
+          }
+        ],
+        "lang": "en-US",
+        "profile": "default",
+        "spoofIP": "",
+        "options": {
+          "audioContext": false,
+          "clientRects": false,
+          "cssExfil": false,
+          "mediaDevices": false,
+          "name": false,
+          "ref": false,
+          "tz": false,
+          "ws": false
+        }
+      }
+    ]
+  }
+}
