@@ -1,0 +1,2 @@
+kernel params:
+mem_sleep_default=s2idle acpi_osi=! acpi_osi=\"Windows 2022\" acpi_enforce_resources=lax usbcore.autosuspend=-1 modprobe.blacklist=ucsi_acpi,typec_ucsi
