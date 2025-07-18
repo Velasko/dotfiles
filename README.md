@@ -15,12 +15,12 @@ pacman -S git stow
 First, check out the dotfiles repo in your $HOME directory using git
 
 ```
-$ git clone --recurse-submodules git@github.com/Velasko/dotfiles.git
-$ cd dotfiles
+git clone --recurse-submodules git@github.com:Velasko/dotfiles.git
+cd dotfiles
 ```
 
 then, go to ./home and use GNU stow to create symlinks
 
 ```
-$ stow --target ~/ .
+stow --target ~/ .
 ```
