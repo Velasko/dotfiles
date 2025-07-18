@@ -1,0 +1,8 @@
+com.bitwarden.desktop
+com.discordapp.Discord
+com.logseq.Logseq
+com.spotify.Client
+io.gitlab.librewolf-community
+org.onlyoffice.desktopeditors
+org.rncbc.qpwgraph
+org.telegram.desktop

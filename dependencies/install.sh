@@ -1,4 +1,5 @@
 rpm-ostree install --idempotent --allow-inactive -yA $(<./main.txt)
+xargs flatpak install <flatpak.txt
 xargs go install <go.txt
 xargs cargo install <cargo.txt
 
