@@ -1,9 +1,14 @@
 rpm-ostree install --idempotent --allow-inactive -yA $(<./main.txt)
 
 flatpak remote-add --if-not-existis flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+BIN=~/.local/bin
 xargs flatpak install <flatpak.txt
 xargs go install <go.txt
-xargs cargo install <cargo.txt
+xargs cargo install --root $BIN <cargo.txt
+
+git config --global user.email "f.l.velasko@gmail.com"
+git config --global user.name "Luís Filipe Velasco da Silva"
 
 # This must be run for the theme to actually work.
 chmod +x /home/velasco/.config/base16-shell/scripts/base16-pop.sh
