@@ -4,6 +4,7 @@ btop
 cargo
 direnv
 fzf
+firejail
 git
 golang
 luarocks

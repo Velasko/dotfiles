@@ -9,3 +9,4 @@ org.telegram.desktop
 org.virt_manager.virt-manager
 io.mpv.Mpv
 org.videolan.VLC
+com.github.tchx84.Flatseal
