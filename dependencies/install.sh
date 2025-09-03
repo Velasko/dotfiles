@@ -1,11 +1,11 @@
 rpm-ostree install --idempotent --allow-inactive -yA $(<./main.txt)
 
-flatpak remote-add --if-not-existis flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 BIN=~/.local
 mkdir -p $BIN/bin
 
-xargs flatpak install <flatpak.txt
+xargs flatpak install --or-update --assumeyes --noninteractive <flatpak.txt
 GOPATH=$BIN xargs go install <go.txt
 xargs cargo install --root $BIN <cargo.txt
 

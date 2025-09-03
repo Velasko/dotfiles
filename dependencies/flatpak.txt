@@ -6,3 +6,6 @@ io.gitlab.librewolf-community
 org.onlyoffice.desktopeditors
 org.rncbc.qpwgraph
 org.telegram.desktop
+org.virt_manager.virt-manager
+io.mpv.Mpv
+org.videolan.VLC
