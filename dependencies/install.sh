@@ -2,10 +2,14 @@ rpm-ostree install --idempotent --allow-inactive -yA $(<./main.txt)
 
 flatpak remote-add --if-not-existis flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-BIN=~/.local/bin
+BIN=~/.local
+mkdir -p $BIN/bin
+
 xargs flatpak install <flatpak.txt
-xargs go install <go.txt
+GOPATH=$BIN xargs go install <go.txt
 xargs cargo install --root $BIN <cargo.txt
+
+hostnamectl set-hostname velasko-desktop
 
 git config --global user.email "f.l.velasko@gmail.com"
 git config --global user.name "Luís Filipe Velasco da Silva"
