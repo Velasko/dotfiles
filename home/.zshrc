@@ -96,8 +96,8 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-export GOPATH="$HOME/.local/go"
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$GOPATH/bin:$PATH"
+export GOPATH="$HOME/.local"
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 export EDITOR='nvim'
 eval "$(starship init zsh)"
 # export MANPATH="/usr/local/man:$MANPATH"
