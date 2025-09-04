@@ -11,4 +11,6 @@ org.virt_manager.virt_manager.Extension.Qemu
 io.mpv.Mpv
 org.videolan.VLC
 com.valvesoftware.Steam
+org.freedesktop.Platform.GL.default/x86_64/25.08
+org.freedesktop.Platform.GL.default/x86_64/25.08-extra
 com.github.tchx84.Flatseal
