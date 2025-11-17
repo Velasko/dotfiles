@@ -26,7 +26,7 @@
     "enableDNT": false,
     "referer": {
       "disabled": false,
-      "xorigin": 0,
+      "xorigin": 1,
       "trimming": 0
     },
     "spoofAcceptLang": {
@@ -66,7 +66,7 @@
     "webSockets": "allow_all"
   },
   "profile": {
-    "selected": "windows",
+    "selected": "randomDesktop",
     "interval": {
       "option": 10,
       "min": 1,
@@ -74,17 +74,17 @@
     },
     "showProfileOnIcon": true
   },
-  "version": "0.22.74.1",
+  "version": "0.22.77.1",
   "whitelist": {
     "enabledContextMenu": true,
     "defaultProfile": "none",
     "rules": [
       {
         "id": "d8de8edb-031d-4a89-921b-a05581b7152b",
-        "name": "www.twitch.tv",
+        "name": "Twitch",
         "sites": [
           {
-            "domain": "www.twitch.tv"
+            "domain": "twitch.tv"
           }
         ],
         "lang": "en-US",
@@ -103,7 +103,7 @@
       },
       {
         "id": "005e51dc-0925-482d-a535-2d5b7108fccb",
-        "name": "www.youtube.com",
+        "name": "Youtube",
         "sites": [
           {
             "domain": "www.youtube.com"
@@ -125,7 +125,7 @@
       },
       {
         "id": "2ec34e60-fb53-4380-9903-e319e19424af",
-        "name": "mail.google.com",
+        "name": "Gmail",
         "sites": [
           {
             "domain": "mail.google.com"
@@ -147,7 +147,7 @@
       },
       {
         "id": "90465aae-e914-44b4-ac9f-2eae9cadd53b",
-        "name": "web.whatsapp.com",
+        "name": "Whatsapp",
         "sites": [
           {
             "domain": "web.whatsapp.com"
@@ -169,10 +169,54 @@
       },
       {
         "id": "26db5b13-e515-4c09-b374-0d61c88110b6",
-        "name": "account.proton.me",
+        "name": "proton.me",
         "sites": [
           {
             "domain": "account.proton.me"
+          }
+        ],
+        "lang": "en-US",
+        "profile": "default",
+        "spoofIP": "",
+        "options": {
+          "audioContext": false,
+          "clientRects": false,
+          "cssExfil": false,
+          "mediaDevices": false,
+          "name": false,
+          "ref": false,
+          "tz": false,
+          "ws": false
+        }
+      },
+      {
+        "id": "75ddc21b-d00e-4f94-9075-60e9091b09bd",
+        "name": "foundry",
+        "sites": [
+          {
+            "domain": "foundry.cornotopia.fun"
+          }
+        ],
+        "lang": "en-US",
+        "profile": "default",
+        "spoofIP": "",
+        "options": {
+          "audioContext": false,
+          "clientRects": false,
+          "cssExfil": false,
+          "mediaDevices": false,
+          "name": false,
+          "ref": false,
+          "tz": false,
+          "ws": false
+        }
+      },
+      {
+        "id": "241e40b0-6284-474c-bc67-92a80d15dd1f",
+        "name": "protondb",
+        "sites": [
+          {
+            "domain": "www.protondb.com"
           }
         ],
         "lang": "en-US",
