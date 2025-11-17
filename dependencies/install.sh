@@ -21,6 +21,6 @@ chmod +x /home/velasco/.config/base16-shell/scripts/base16-pop.sh
 chsh -s $(which zsh)
 
 # Devpod config
-curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64" && sudo install -c -m 0755 devpod /usr/local/bin && rm -f devpod
-devpod provider add docker -o DOCKER_PATH=$(which podman)
-devpod ide use none
+#curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-linux-amd64" && sudo install -c -m 0755 devpod /usr/local/bin && rm -f devpod
+#devpod provider add docker -o DOCKER_PATH=$(which podman)
+#devpod ide use none
