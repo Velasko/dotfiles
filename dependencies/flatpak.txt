@@ -14,3 +14,4 @@ com.valvesoftware.Steam
 org.freedesktop.Platform.GL.default/x86_64/25.08
 org.freedesktop.Platform.GL.default/x86_64/25.08-extra
 com.github.tchx84.Flatseal
+org.prismlauncher.PrismLauncher
