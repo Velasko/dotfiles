@@ -232,6 +232,28 @@
           "tz": false,
           "ws": false
         }
+      },
+      {
+        "id": "a816d3c9-0473-4628-a05f-7930aa83f422",
+        "name": "extension install",
+        "sites": [
+          {
+            "domain": "addons.mozilla.org"
+          }
+        ],
+        "lang": "default",
+        "profile": "default",
+        "spoofIP": "",
+        "options": {
+          "audioContext": false,
+          "clientRects": false,
+          "cssExfil": false,
+          "mediaDevices": false,
+          "name": false,
+          "ref": false,
+          "tz": false,
+          "ws": false
+        }
       }
     ]
   }
