@@ -1,0 +1,5 @@
+Installed by bash line:
+
+talosctl
+kubectl
+fluxcd

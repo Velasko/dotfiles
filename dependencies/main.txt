@@ -18,3 +18,14 @@ unzip
 zoxide
 zsh
 levien-inconsolata-fonts
+qemu
+qemu-kvm
+virt-manager
+libvirt
+virt-viewer
+guestfs-tools
+libguestfs-tools
+python3-libguestfs
+virt-top
+virtiofsd
+libdrm-devel
