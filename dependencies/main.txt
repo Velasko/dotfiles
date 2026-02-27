@@ -2,6 +2,7 @@ alacritty
 autojump-zsh
 btop
 cargo
+clippy
 direnv
 fzf
 firejail
