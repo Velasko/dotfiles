@@ -3,6 +3,7 @@ com.discordapp.Discord
 com.logseq.Logseq
 com.spotify.Client
 io.gitlab.librewolf-community
+io.github.dgsasha.Remembrance
 org.onlyoffice.desktopeditors
 org.rncbc.qpwgraph
 org.telegram.desktop
